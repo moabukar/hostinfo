@@ -37,4 +37,3 @@ func main() {
 	log.Println(hostname + " " + localAddr.IP.String() + " " + strconv.Itoa(port))
 	log.Fatal(http.ListenAndServe("0.0.0.0:"+strconv.Itoa(port), nil))
 }
-
