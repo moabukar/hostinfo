@@ -25,7 +25,21 @@ docker run hi
 
 ## K8s
 
+To curl a k8s service backed by hostinfo instances:
+
 ```bash
+$ kubectl run test-hi --image moabukar/hostinfo --port 9898
 
-
+$ kubectl expose pod test-hi --port 80 --target-port 9898
 ```
+
+Now from another pod:
+
+```bash
+$ kubectl run -it --rm client moabukar/tools 
+
+$ curl test-hi.default.svc.cluster.local
+
+test-hi 10.90.11.42
+```
+
