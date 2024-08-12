@@ -28,7 +28,7 @@ docker run hi
 To curl a k8s service backed by hostinfo instances:
 
 ```bash
-$ kubectl run test-hi --image moabukar/hostinfo --port 9898
+$ kubectl run test-hi --image moabukar/hostinfo:57e740e --port 9898
 
 $ kubectl expose pod test-hi --port 80 --target-port 9898
 ```
@@ -36,10 +36,10 @@ $ kubectl expose pod test-hi --port 80 --target-port 9898
 Now from another pod:
 
 ```bash
-$ kubectl run -it --rm client moabukar/tools 
+$ kubectl run -it --rm netshoot --image nicolaka/netshoot
 
 $ curl test-hi.default.svc.cluster.local
 
-test-hi 10.90.11.42
+test-hi 10.2.1.154
 ```
 
